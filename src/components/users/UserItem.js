@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const UserItem = props => {
   const { username, avatar_url, profile_url } = props.user;
