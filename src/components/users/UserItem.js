@@ -5,7 +5,7 @@ class UserItem extends Component {
     super();
     this.state = {
       id: 1,
-      login: "mojombo",
+      username: "mojombo",
       avatar_url: "https://avatars0.githubusercontent.com/u/1?v=4",
       html_url: "https://github.com/mojombo"
     };
@@ -16,7 +16,9 @@ class UserItem extends Component {
       <div className="card text-center">
         <img
           src={this.state.avatar_url}
-          alt={this.state.login + " avatar image"}
+          alt={this.state.username + " avatar image"}
+          className="round-img"
+          style={{ width: "60px" }}
         />
       </div>
     );
