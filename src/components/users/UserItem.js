@@ -20,6 +20,7 @@ class UserItem extends Component {
           className="round-img"
           style={{ width: "60px" }}
         />
+        <h4>{username}</h4>
         <div>
           <a href={profile_url} className="btn btn-dark btn-sm my-1">
             More
