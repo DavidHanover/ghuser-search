@@ -27,7 +27,7 @@ export class Users extends Component {
   render() {
     const { users } = this.state;
     return (
-      <div>
+      <div style={userStyle}>
         {users.map(user => {
           return <UserItem user={user} key={user.id} />;
         })}
@@ -35,5 +35,11 @@ export class Users extends Component {
     );
   }
 }
+
+const userStyle = {
+  display: "grid",
+  gridTemplateColumns: "repeat(3,1fr)",
+  gridGap: "1rem"
+};
 
 export default Users;
