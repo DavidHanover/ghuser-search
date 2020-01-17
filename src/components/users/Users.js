@@ -29,15 +29,7 @@ export class Users extends Component {
     return (
       <div>
         {users.map(user => {
-          return (
-            <UserItem
-              key={user.id}
-              id={user.id}
-              username={user.username}
-              avatar_url={user.avatar_url}
-              profile_url={user.profile_url}
-            />
-          );
+          return <UserItem user={user} key={user.id} />;
         })}
       </div>
     );

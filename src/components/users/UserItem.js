@@ -2,14 +2,16 @@ import React, { Component } from "react";
 
 class UserItem extends Component {
   static defaultProps = {
-    id: 0,
-    username: "null user",
-    avatar_url:
-      "https://iupac.org/wp-content/uploads/2018/05/default-avatar.png",
-    profile_url: "https://github.com"
+    user: {
+      id: 0,
+      username: "null user",
+      avatar_url:
+        "https://iupac.org/wp-content/uploads/2018/05/default-avatar.png",
+      profile_url: "https://github.com"
+    }
   };
   render() {
-    const { username, avatar_url, profile_url } = this.props;
+    const { username, avatar_url, profile_url } = this.props.user;
     return (
       <div className="card text-center">
         <img
