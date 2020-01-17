@@ -25,7 +25,22 @@ export class Users extends Component {
     ]
   };
   render() {
-    return <div>{}</div>;
+    const { users } = this.state;
+    return (
+      <div>
+        {users.map(user => {
+          return (
+            <UserItem
+              key={user.id}
+              id={user.id}
+              username={user.username}
+              avatar_url={user.avatar_url}
+              profile_url={user.profile_url}
+            />
+          );
+        })}
+      </div>
+    );
   }
 }
 
