@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const UserItem = ({ user: { username, avatar_url, profile_url } }) => {
   return (
@@ -28,4 +29,9 @@ UserItem.defaultProps = {
     profile_url: "https://github.com"
   }
 };
+
+UserItem.propTypes = {
+  user: PropTypes.object.isRequired
+};
+
 export default UserItem;
