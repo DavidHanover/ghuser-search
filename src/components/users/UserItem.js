@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 
 class UserItem extends Component {
-  state = {
-    id: 1,
-    username: "mojombo",
-    avatar_url: "https://avatars0.githubusercontent.com/u/1?v=4",
-    html_url: "https://github.com/mojombo"
+  static defaultProps = {
+    id: 0,
+    username: "null user",
+    avatar_url:
+      "https://iupac.org/wp-content/uploads/2018/05/default-avatar.png",
+    profile_url: "https://github.com"
   };
   render() {
-    const { username, avatar_url, html_url } = this.state;
+    const { username, avatar_url, profile_url } = this.props;
     return (
       <div className="card text-center">
         <img
@@ -18,7 +19,7 @@ class UserItem extends Component {
           style={{ width: "60px" }}
         />
         <div>
-          <a href={html_url} className="btn btn-dark btn-sm my-1">
+          <a href={profile_url} className="btn btn-dark btn-sm my-1">
             More
           </a>
         </div>
