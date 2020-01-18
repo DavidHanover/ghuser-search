@@ -6,6 +6,8 @@ export class Search extends Component {
   };
   onSubmit = e => {
     e.preventDefault();
+    this.props.submitSearch(this.state.text);
+    this.setState({ text: "" });
   };
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 

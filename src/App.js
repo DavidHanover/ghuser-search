@@ -12,6 +12,14 @@ class App extends Component {
     loading: false
   };
 
+  handleSearch = async search => {
+    this.setState({ loading: true });
+    const res = await axios.get(
+      `https://api.github.com/search/users?q=${search}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
+    this.setState({ users: res.data.items, loading: false });
+  };
+
   async componentDidMount() {
     this.setState({ loading: true });
     const res = await axios.get(
@@ -24,7 +32,7 @@ class App extends Component {
       <div className="App">
         <Navbar></Navbar>
         <div className="container">
-          <Search />
+          <Search submitSearch={this.handleSearch} />
           {this.state.loading ? (
             <Spinner />
           ) : (
