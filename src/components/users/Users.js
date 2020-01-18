@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UserItem from "./UserItem";
+import PropTypes from "prop-types";
 
 const Users = ({ users }) => {
   const userStyle = {
@@ -15,6 +16,10 @@ const Users = ({ users }) => {
       })}
     </div>
   );
+};
+
+Users.propTypes = {
+  users: PropTypes.array.isRequired
 };
 
 export default Users;
