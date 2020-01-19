@@ -40,6 +40,7 @@ class App extends Component {
           <Search
             submitSearch={this.handleSearch}
             clearUsers={this.clearUsers}
+            showClear={this.state.users.length ? true : false}
           />
           {this.state.loading ? (
             <Spinner />
