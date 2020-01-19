@@ -39,7 +39,7 @@ export class Search extends Component {
         </form>
         {this.props.showClear && (
           <button
-            className="btn btn-dark btn-block"
+            className="btn btn-light btn-block"
             onClick={this.props.clearUsers}
           >
             Clear
