@@ -3,17 +3,20 @@ import PropTypes from "prop-types";
 
 export class Search extends Component {
   static propTypes = {
-    submitSearch: PropTypes.func.isRequired
+    submitSearch: PropTypes.func.isRequired,
+    clearUsers: PropTypes.func.isRequired
   };
 
   state = {
     text: ""
   };
+
   onSubmit = e => {
     e.preventDefault();
     this.props.submitSearch(this.state.text);
     this.setState({ text: "" });
   };
+
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
@@ -33,6 +36,12 @@ export class Search extends Component {
             className="btn btn-dark btn-block"
           />
         </form>
+        <button
+          className="btn btn-dark btn-block"
+          onClick={this.props.clearUsers}
+        >
+          Clear
+        </button>
       </div>
     );
   }

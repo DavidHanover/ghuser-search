@@ -21,6 +21,10 @@ class App extends Component {
     this.setState({ users: res.data.items, loading: false });
   };
 
+  clearUsers = () => {
+    this.setState({ users: [] });
+  };
+
   async componentDidMount() {
     this.setState({ loading: true });
     const res = await axios.get(
@@ -33,7 +37,10 @@ class App extends Component {
       <div className="App">
         <Navbar></Navbar>
         <div className="container">
-          <Search submitSearch={this.handleSearch} />
+          <Search
+            submitSearch={this.handleSearch}
+            clearUsers={this.clearUsers}
+          />
           {this.state.loading ? (
             <Spinner />
           ) : (
