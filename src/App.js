@@ -12,6 +12,7 @@ class App extends Component {
     loading: false
   };
 
+  //search github users through github api endpoint
   handleSearch = async search => {
     this.setState({ loading: true });
     const res = await axios.get(
