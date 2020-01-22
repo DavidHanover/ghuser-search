@@ -22,7 +22,7 @@ class App extends Component {
   };
 
   clearUsers = () => {
-    this.setState({ users: [] });
+    this.setState({ users: [], loading: false });
   };
 
   async componentDidMount() {
@@ -33,6 +33,7 @@ class App extends Component {
     this.setState({ users: res.data, loading: false });
   }
   render() {
+    const { users, loading } = this.state;
     return (
       <div className="App">
         <Navbar></Navbar>
@@ -40,13 +41,9 @@ class App extends Component {
           <Search
             submitSearch={this.handleSearch}
             clearUsers={this.clearUsers}
-            showClear={this.state.users.length ? true : false}
+            showClear={users.length ? true : false}
           />
-          {this.state.loading ? (
-            <Spinner />
-          ) : (
-            <Users users={this.state.users} />
-          )}
+          {loading ? <Spinner /> : <Users users={users} />}
         </div>
       </div>
     );
