@@ -3,6 +3,7 @@ import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
 import Spinner from "./components/layout/Spinner";
 import Search from "./components/users/Search";
+import Alert from "./components/layout/Alert";
 import axios from "axios";
 import "./App.css";
 
@@ -31,6 +32,8 @@ class App extends Component {
   //pass in prop down to "search" component
   setAlert = (msg, type) => {
     this.setState({ alert: { msg: msg, type: type } });
+
+    setTimeout(() => this.setState({ alert: null }), 5000);
   };
 
   async componentDidMount() {
@@ -46,6 +49,7 @@ class App extends Component {
       <div className="App">
         <Navbar></Navbar>
         <div className="container">
+          <Alert alert={this.state.alert} />
           <Search
             submitSearch={this.handleSearch}
             clearUsers={this.clearUsers}
