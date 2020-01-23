@@ -9,7 +9,8 @@ import "./App.css";
 class App extends Component {
   state = {
     users: [],
-    loading: false
+    loading: false,
+    alert: null
   };
 
   //search github users through github api endpoint
@@ -21,8 +22,15 @@ class App extends Component {
     this.setState({ users: res.data.items, loading: false });
   };
 
+  //clear users from state
   clearUsers = () => {
     this.setState({ users: [], loading: false });
+  };
+
+  //set alert in case form submission is bad.
+  //pass in prop down to "search" component
+  setAlert = (msg, type) => {
+    this.setState({ alert: { msg: msg, type: type } });
   };
 
   async componentDidMount() {
@@ -42,6 +50,7 @@ class App extends Component {
             submitSearch={this.handleSearch}
             clearUsers={this.clearUsers}
             showClear={users.length ? true : false}
+            setAlert={this.setAlert}
           />
           {loading ? <Spinner /> : <Users users={users} />}
         </div>
